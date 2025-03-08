@@ -36,7 +36,10 @@ const FormForAdd:React.FC<SearchFormProps> = ({todos, setTodos}) => {
     <>
       <form onSubmit={handleSubmit}>
         <Input placeholder="Task title" name="title" />
-        <Input type="text" name="isCompleted" />
+        <select name="isCompleted">
+          <option className="text-white bg-black rounded-2xl gap-2 " value="false">Not Completed</option>
+          <option className="text-white bg-black rounded-2xl gap-2 " value="true">Completed</option>
+        </select>
         <Button>Add New Task</Button>  
       </form>
     </>
