@@ -1,37 +1,17 @@
-import { Todo } from "./types.tsx"
 import { useState } from "react"
+import { Todo } from "./types.ts"
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
+import FormForAdd from "./components/custom/FormAdd";
   
 
 function App() {
 
   const [todos, setTodos] = useState<Array<Todo>>([]);
 
-  function handleSubmit (e: any) {
-    
-    e.preventDefault();
-
-    const fm = new FormData(e.currentTarget)
-
-    const title = fm.get("title") as string
-
-    const newTodo: Todo = {
-      id:Math.random(),
-      title,
-      completed: false,
-      added_at: new Date().toISOString(),
-    }
-
-    setTodos([...todos, newTodo]);
-
-
-    console.log(todos);
-    
-  }
 
 
   return (
@@ -41,10 +21,7 @@ function App() {
       <ResizablePanel>One</ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel>
-        <form onSubmit={handleSubmit}>
-          <input type="text"  name="title" />
-          <button>add</button>
-        </form>
+        <FormForAdd todos={todos} setTodos = {setTodos}/>
       </ResizablePanel>
     </ResizablePanelGroup>
     </div>
