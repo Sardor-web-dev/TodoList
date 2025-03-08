@@ -1,4 +1,6 @@
 import { Todo } from "../../types.ts"
+import { Input } from "../ui/input";
+import { Button } from "..//ui/button";
 
 
 interface SearchFormProps {
@@ -32,8 +34,9 @@ const FormForAdd:React.FC<SearchFormProps> = ({todos, setTodos}) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="title" />
-        <button>add</button>
+        <Input placeholder="Task title" name="title" />
+        <Input type="radio" />
+        <Button>Add New Task</Button>  
       </form>
     </>
   );
