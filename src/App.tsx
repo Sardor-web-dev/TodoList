@@ -13,6 +13,7 @@ import Tasks from "./components/custom/Tasks.tsx";
 function App() {
 
   const [todos, setTodos] = useState<Array<Todo>>([]);
+  
   return (
     <>
     <div className="w-full h-screen bg-black text-white">
