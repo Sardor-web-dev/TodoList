@@ -9,10 +9,14 @@ interface SearchFormProps {
 }
 
 const Search: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
+
+
   const [search, setSearch] = useState<string>("");
+
   const searchTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
+    
 
     if (value.trim() === "") {
       setTodos(todos);
@@ -22,6 +26,7 @@ const Search: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
       );
       setTodos(filtered);
     }
+
   };
   return (
     <>
