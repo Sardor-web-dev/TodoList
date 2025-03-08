@@ -26,7 +26,7 @@ const Search: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
   return (
     <>
       <div className="flex w-full max-w-sm items-center space-x-2">
-        <Input type="text" placeholder="Search Task" onChange={searchTask} />
+        <Input type="text" value={search} placeholder="Search Task" onChange={searchTask} />
         <Button
           variant="outline"
           className="hover:text-white hover:bg-gray-500 bg-black cursor-pointer"
