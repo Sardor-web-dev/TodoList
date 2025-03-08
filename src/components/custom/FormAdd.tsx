@@ -17,12 +17,13 @@ const FormForAdd:React.FC<SearchFormProps> = ({todos, setTodos}) => {
     const fm = new FormData(e.currentTarget)
 
     const title = fm.get("title") as string
+    const completed = fm.get("isCompleted") as string
 
     const newTodo: Todo = {
       id:Math.random(),
       title,
-      completed: false,
-      added_at: new Date().toISOString(),
+      completed,
+      added_at: new Date().toDateString()
     }
 
     setTodos([...todos, newTodo]);
@@ -35,7 +36,7 @@ const FormForAdd:React.FC<SearchFormProps> = ({todos, setTodos}) => {
     <>
       <form onSubmit={handleSubmit}>
         <Input placeholder="Task title" name="title" />
-        <Input type="radio" />
+        <Input type="text" name="isCompleted" />
         <Button>Add New Task</Button>  
       </form>
     </>
