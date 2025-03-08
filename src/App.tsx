@@ -6,6 +6,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 import FormForAdd from "./components/custom/FormAdd";
+import Search from "./components/custom/Search.tsx";
   
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
     <>
     <div className="w-full h-screen bg-black text-white">
     <ResizablePanelGroup className="w-full h-screen" direction="horizontal">
-      <ResizablePanel>One</ResizablePanel>
+      <ResizablePanel>
+        <Search/>
+      </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel>
         <FormForAdd todos={todos} setTodos = {setTodos}/>
