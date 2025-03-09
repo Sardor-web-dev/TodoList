@@ -14,13 +14,13 @@ const FormForAdd: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
     const fm = new FormData(e.currentTarget);
 
     const title = fm.get("title") as string;
-    const completed = fm.get("isCompleted") as string;
+    const completed = fm.get("isCompleted");
 
     const newTodo: Todo = {
       id: Math.random(),
       title,
       completed,
-      added_at: new Date().toDateString(),
+      addedAt: new Date().toDateString(),
     };
 
     setTodos([...todos, newTodo]);
@@ -29,23 +29,24 @@ const FormForAdd: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <Input placeholder="Task title" name="title" />
-        <select name="isCompleted">
-          <option
-            className="text-white bg-black rounded-2xl gap-2 "
-            value="false"
-          >
-            Not Completed
-          </option>
-          <option
-            className="text-white bg-black rounded-2xl gap-2 "
-            value="true"
-          >
-            Completed
-          </option>
-        </select>
-        <Button>Add New Task</Button>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <Input
+          name="title"
+          placeholder="Enter task"
+          className="border border-gray-300 rounded-md p-2"
+        />
+        <label className="flex items-center gap-2">
+          <input
+            name="isCompleted"
+            type="checkbox"
+            className="h-4 w-4"
+          />
+          <span>Completed</span>
+        </label>
+        <Button
+          type="submit"
+          className="size-[sm] bg-[#007FFF] hover:bg-[#007FFF] cursor-pointer"
+        />
       </form>
     </>
   );
