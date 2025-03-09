@@ -32,7 +32,7 @@ const Tasks: React.FC<TasksProps> = ({ filteredTodos }) => {
     {filteredTodos.map((todo) => (
       <TableRow key={todo.id} className="hover:bg-gray-100">
         <TableCell>{todo.title}</TableCell>
-        <TableCell>{(todo.addedAt)}</TableCell>
+        <TableCell>{todo.addedAt}</TableCell>
         <TableCell>{todo.completed ? "Done" : "Not Done"}</TableCell>
         <TableCell>
           <div className="flex gap-2">

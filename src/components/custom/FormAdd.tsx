@@ -43,10 +43,7 @@ const FormForAdd: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
           />
           <span>Completed</span>
         </label>
-        <Button
-          type="submit"
-          className="size-[sm] bg-[#007FFF] hover:bg-[#007FFF] cursor-pointer"
-        />
+        <Button type="submit" className="size-[sm] bg-[#007FFF] hover:bg-[#007FFF] cursor-pointer"> Add Task </Button>
       </form>
     </>
   );
