@@ -2,6 +2,8 @@ import { Todo } from "../../types";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Button } from "..//ui/button";
+
+
 import {
     Table,
     TableBody,
@@ -13,9 +15,10 @@ import {
 
 interface TasksProps {
   filteredTodos: Array<Todo>;
+  deleteTodo: (id: number) => void; 
 }
 
-const Tasks: React.FC<TasksProps> = ({ filteredTodos }) => {
+const Tasks: React.FC<TasksProps> = ({ filteredTodos, deleteTodo }) => {
   return (
     <>
 <div className="overflow-x-auto shadow-lg rounded-md bg-white text-black">
@@ -37,13 +40,13 @@ const Tasks: React.FC<TasksProps> = ({ filteredTodos }) => {
         <TableCell>
           <div className="flex gap-2">
             <Button className="text- black bg-white hover:bg-white cursor-pointer">Edit <FaEdit  /></Button>
-            <Button className="text- black bg-white hover:bg-white cursor-pointer">Delete <MdDelete /></Button>
+            <Button onClick={() => deleteTodo(todo.id)} className="text- black bg-white hover:bg-white cursor-pointer">Delete <MdDelete /></Button>
           </div>
         </TableCell>
       </TableRow>
     ))}
   </TableBody>
-</Table>
+</Table> 
 </div>
     </>
   );

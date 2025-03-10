@@ -29,7 +29,7 @@ const FormForAdd: React.FC<SearchFormProps> = ({ todos, setTodos }) => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col w-100 h-50 p-2 gap-5 bg-white rounded-2xl text-black ">
         <Input
           name="title"
           placeholder="Enter task"

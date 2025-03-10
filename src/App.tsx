@@ -17,12 +17,20 @@ function App() {
     setFilteredTodos(todos);
   }, [todos]);
 
+    const deleteTodo = (id: number) => {
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      setTodos(newTodos);
+      setFilteredTodos(newTodos); 
+    };
+  
+  
+
   return (
     <div className="w-full h-screen bg-black text-white">
       <ResizablePanelGroup className="w-full h-screen" direction="horizontal">
         <ResizablePanel className="flex flex-col gap-2 items-center p-5 ">
           <Search todos={todos} setFilteredTodos={setFilteredTodos} />
-          <Tasks filteredTodos={filteredTodos} />
+          <Tasks deleteTodo={deleteTodo} filteredTodos={filteredTodos} />
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel className="flex items-center justify-center">
